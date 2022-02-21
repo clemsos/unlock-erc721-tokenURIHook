@@ -29,9 +29,11 @@ contract LockTokenURIHook
     uint //expirationTimestamp
   ) external view returns(string memory) {
 
+    // get lock instance
+    IPublicLockV9 lock = IPublicLockV9(lockAddress);
+
     // if NFT contract is not set, returns default lock tokenURI
     if(nftContractAddress == address(0)) {
-      IPublicLockV9 lock = IPublicLockV9(lockAddress);
       return lock.tokenURI(keyId);
     }
     
@@ -41,7 +43,6 @@ contract LockTokenURIHook
     console.log('== owns nft:', ownsNft);
     
     // check key validity
-    IPublicLockV9 lock = IPublicLockV9(lockAddress);
     bool hasValidKey = lock.getHasValidKey(owner);
     console.log('== has valid key:', hasValidKey);
     
