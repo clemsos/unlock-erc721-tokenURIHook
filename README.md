@@ -13,6 +13,10 @@ There are 3 elements to the project :
 Once the `tokenURIHook` is set in the lock, the hook contract will be used to return the URI.
 
 In the hook contract, the color of the SVG changes based on the NFT and Lock ownership (green if caller owns a nft and a valid key, orange is caller only owns a valid key but no nft, etc).
+
+The returned string is a Base64-encoded SVG that looks like ```data:image/svg+xml;base64,...``` and can be directly copy/pasted in the browser URL field.
+
+
 ### Run the project
 
 ```shell
