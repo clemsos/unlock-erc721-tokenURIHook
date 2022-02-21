@@ -4,7 +4,7 @@ const { AddressZero } = ethers.constants
 
 async function main() {
   
-  // make saure we compile the latest versions 
+  // make sure we compile the latest versions 
   run("compile")
 
   // start workflow

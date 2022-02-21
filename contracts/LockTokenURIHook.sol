@@ -30,7 +30,7 @@ contract LockTokenURIHook
   ) external view returns(string memory) {
 
     // set NFT contract
-    require(nftContractAddress != address(0), "NFT_CONTRAC_NOT_SET");
+    require(nftContractAddress != address(0), "NFT_CONTRACT_NOT_SET");
     
     // check nft ownership
     IERC721 nft = IERC721(nftContractAddress);
