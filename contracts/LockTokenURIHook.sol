@@ -25,12 +25,15 @@ contract LockTokenURIHook
     address lockAddress,
     address, // operator,
     address owner, // owner,
-    uint256, //keyId,
+    uint256 keyId,
     uint //expirationTimestamp
   ) external view returns(string memory) {
 
-    // set NFT contract
-    require(nftContractAddress != address(0), "NFT_CONTRACT_NOT_SET");
+    // if NFT contract is not set, returns default lock tokenURI
+    if(nftContractAddress == address(0)) {
+      IPublicLockV9 lock = IPublicLockV9(lockAddress);
+      return lock.tokenURI(keyId);
+    }
     
     // check nft ownership
     IERC721 nft = IERC721(nftContractAddress);
