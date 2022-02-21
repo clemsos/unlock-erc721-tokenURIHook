@@ -15,7 +15,6 @@ contract LockTokenURIHook
 
   address nftContractAddress;
   
-
   function setNftContractAddress(address _contractAddress) public {
     nftContractAddress = _contractAddress;
   }
